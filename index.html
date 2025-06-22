@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-tasks"></i> Ultimate To-Do List</h1>
+            <div class="theme-toggle">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <button class="active" data-filter="all"><i class="fas fa-list"></i> All Tasks</button>
+                    <button data-filter="today"><i class="fas fa-calendar-day"></i> Today</button>
+                    <button data-filter="important"><i class="fas fa-exclamation"></i> Important</button>
+                    <button data-filter="completed"><i class="fas fa-check-circle"></i> Completed</button>
+                </div>
+                <div class="categories">
+                    <h3><i class="fas fa-tags"></i> Categories</h3>
+                    <div class="category-list">
+                        <div class="category-item" data-category="work">
+                            <span class="color-dot" style="background-color: #ff6b6b;"></span>
+                            <span>Work</span>
+                        </div>
+                        <div class="category-item" data-category="personal">
+                            <span class="color-dot" style="background-color: #48dbfb;"></span>
+                            <span>Personal</span>
+                        </div>
+                        <div class="category-item" data-category="shopping">
+                            <span class="color-dot" style="background-color: #1dd1a1;"></span>
+                            <span>Shopping</span>
+                        </div>
+                        <div class="category-item" data-category="health">
+                            <span class="color-dot" style="background-color: #feca57;"></span>
+                            <span>Health</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="content-area">
+                <div class="task-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search tasks...">
+                    </div>
+                    <div class="sort-options">
+                        <select id="sortSelect">
+                            <option value="date-added">Date Added</option>
+                            <option value="due-date">Due Date</option>
+                            <option value="priority">Priority</option>
+                            <option value="alphabetical">Alphabetical</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="task-input-container">
+                    <input type="text" id="taskInput" placeholder="Add a new task...">
+                    <div class="task-options">
+                        <div class="due-date-picker">
+                            <input type="date" id="dueDate">
+                            <label for="dueDate"><i class="far fa-calendar-alt"></i></label>
+                        </div>
+                        <select id="prioritySelect">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <select id="categorySelect">
+                            <option value="">No Category</option>
+                            <option value="work">Work</option>
+                            <option value="personal">Personal</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="health">Health</option>
+                        </select>
+                        <button id="addTaskBtn" class="primary-btn">Add Task</button>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Tasks</h3>
+                        <span id="totalTasks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed</h3>
+                        <span id="completedTasks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending</h3>
+                        <span id="pendingTasks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Overdue</h3>
+                        <span id="overdueTasks">0</span>
+                    </div>
+                </div>
+
+                <ul id="taskList"></ul>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
